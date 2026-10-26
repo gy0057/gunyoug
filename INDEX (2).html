@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 단독주택 집짓기 비용 총정리 | 토지부터 입주까지</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <style>
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+        }
+        .chart-box {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            max-height: 360px;
+        }
+        @media (min-width: 768px) {
+            .chart-box {
+                height: 330px;
+            }
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94A3B8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748B;
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-800">
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl">🏡</span>
+                <span class="font-bold text-lg sm:text-xl tracking-tight text-white">2026 단독주택 예산 총정리</span>
+                <span class="hidden sm:inline-block px-2.5 py-0.5 rounded text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                    2026 법령 기준
+                </span>
+            </div>
+            <nav class="hidden lg:flex space-x-6 text-sm font-medium text-slate-300">
+                <a href="#overview" class="hover:text-amber-400 transition">기본 개요</a>
+                <a href="#budget-charts" class="hover:text-amber-400 transition">예산 구조 & 차트</a>
+                <a href="#process" class="hover:text-amber-400 transition">6단계 공정 로드맵</a>
+                <a href="#permits" class="hover:text-amber-400 transition">허가·감리·부담금</a>
+                <a href="#checklist" class="hover:text-amber-400 transition">체크리스트</a>
+                <a href="#calculator" class="text-amber-400 font-bold hover:underline transition">💡 총예산 계산기</a>
+            </nav>
+            <a href="#calculator" class="lg:hidden text-xs font-semibold px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950">
+                예산 계산기
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- Hero Section -->
+        <section id="overview" class="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+            <div class="relative z-10 max-w-4xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-4 border border-emerald-500/30">
+                    <span>📑</span> 2026년 10월 26일 시행 법령 반영 | 예비 건축주 필독 가이드
+                </div>
+                <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight text-white mb-4">
+                    "평당 900만 원이면 <span class="text-amber-400">3.6억</span>인데, <br class="hidden sm:inline">왜 실제 예산은 <span class="text-emerald-400">6.3억</span>이 들까요?"
+                </h1>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                    집짓기에서 순수 건축공사비는 전체 자금의 약 <strong>56%</strong>에 불과합니다. 토지 취득세, 인허가 및 측량, 토목 옹벽, 상하수도 인입, 옵션 가구, 그리고 준공 취득세와 예비비까지 포함한 현실적인 <strong>전체 자금 계획표</strong>를 확인하세요.
+                </p>
+
+                <!-- Key Metric Cards -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-slate-800">
+                    <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700/80">
+                        <div class="text-xs text-slate-400 font-medium">가상 총사업비 (100평 대지)</div>
+                        <div class="text-lg sm:text-2xl font-black text-amber-400 mt-1">6억 3,560만</div>
+                        <div class="text-xs text-slate-400 mt-1">토지비 1억 포함 (토지제외 5.35억)</div>
+                    </div>
+                    <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700/80">
+                        <div class="text-xs text-slate-400 font-medium">순수 건축공사비 (40평)</div>
+                        <div class="text-lg sm:text-2xl font-black text-emerald-400 mt-1">3억 6,000만</div>
+                        <div class="text-xs text-slate-400 mt-1">평당 900만 원 기준 (56.6%)</div>
+                    </div>
+                    <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700/80">
+                        <div class="text-xs text-slate-400 font-medium">토목·인입·외부공사</div>
+                        <div class="text-lg sm:text-2xl font-black text-sky-400 mt-1">6,200만 원</div>
+                        <div class="text-xs text-slate-400 mt-1">옹벽, 정화조, 상하수도, 조경</div>
+                    </div>
+                    <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700/80">
+                        <div class="text-xs text-slate-400 font-medium">설계·인허가·세금·예비비</div>
+                        <div class="text-lg sm:text-2xl font-black text-purple-400 mt-1">1억 1,360만</div>
+                        <div class="text-xs text-slate-400 mt-1">설계/감리, 준공취득세, 예비비 등</div>
+                    </div>
+                </div>
+
+                <!-- Simulation Specs Badge -->
+                <div class="mt-6 flex flex-wrap items-center gap-2 text-xs text-slate-300">
+                    <span class="font-semibold text-slate-400">시뮬레이션 전제:</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded-md border border-slate-700">대지면적 100평 (331㎡)</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded-md border border-slate-700">연면적 40평 (132㎡)</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded-md border border-slate-700">경량목구조</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded-md border border-slate-700">토지 1억 원 (일반 대지 기준)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Budget Charts & Breakdown Section -->
+        <section id="budget-charts" class="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 sm:p-8">
+            <div class="mb-6">
+                <div class="flex items-center space-x-2 text-indigo-600 font-semibold text-sm">
+                    <span>📊</span>
+                    <span>예산 배분 시각화</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">총사업비 6억 3,560만 원의 실제 구성 비율</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+                    많은 예비 건축주가 공사 도급계약서의 '순수 건축공사비'만 계산하고 착공했다가 준공 전 현금 부족에 직면합니다.
+                    아래 지출 구조를 통해 어떤 부대비용이 숨어 있는지 확인해 보세요.
+                </p>
+            </div>
+
+            <!-- Charts Container -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
+                <!-- Doughnut Chart -->
+                <div class="lg:col-span-6 bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-100 flex flex-col items-center">
+                    <h3 class="font-bold text-slate-800 text-sm mb-3">항목별 지출 비중 (%)</h3>
+                    <div class="chart-box">
+                        <canvas id="budgetDoughnutChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-3 text-center">
+                        * 순수 건축비(56.6%) 외 부대/행정/세금 비용이 약 43.4%를 차지합니다.
+                    </p>
+                </div>
+
+                <!-- Bar Chart -->
+                <div class="lg:col-span-6 bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-100 flex flex-col items-center">
+                    <h3 class="font-bold text-slate-800 text-sm mb-3">주요 카테고리별 지출 금액 (단위: 만 원)</h3>
+                    <div class="chart-box">
+                        <canvas id="costBarChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-3 text-center">
+                        * 토지비 1억 포함 기준이며, 예비비(4,500만 원)는 필수 안전장치입니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Detailed Breakdown Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="p-5 rounded-2xl border border-emerald-200 bg-emerald-50/40">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-emerald-950 text-base">순수 건축공사비</span>
+                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-emerald-200 text-emerald-900">56.6%</span>
+                    </div>
+                    <div class="text-xl font-extrabold text-emerald-700 mb-2">3억 6,000만 원</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        40평 × 900만 원 기준. 기초, 목조 골조, 지붕·외장, 창호, 단열, 표준 내장재 시공이 포함됩니다. (도급업체 표준 공사비)
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-2xl border border-sky-200 bg-sky-50/40">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-sky-950 text-base">토목·인입·외부공사</span>
+                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-sky-200 text-sky-900">9.7%</span>
+                    </div>
+                    <div class="text-xl font-extrabold text-sky-700 mb-2">5,200만 원</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        대지 절·성토 및 옹벽(2,500만), 상하수도·전기·정화조 인입(1,200만), 주차장·포장·준공 조경(1,500만).
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-2xl border border-indigo-200 bg-indigo-50/40">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-indigo-950 text-base">설계·인허가 & 감리</span>
+                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-indigo-200 text-indigo-900">5.7%</span>
+                    </div>
+                    <div class="text-xl font-extrabold text-indigo-700 mb-2">3,600만 원</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        측량·지반조사(200만), 건축설계비(2,400만), 행정대행(500만), 법정 공사감리비(500만).
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-2xl border border-amber-200 bg-amber-50/40">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-amber-950 text-base">별도 옵션 설비 & 가구</span>
+                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-amber-200 text-amber-900">4.2%</span>
+                    </div>
+                    <div class="text-xl font-extrabold text-amber-700 mb-2">2,700만 원</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        주방 씽크·신발·붙박이가구(1,500만), 천장형 시스템에어컨 등(1,000만), 홈 IoT·CCTV 보안(200만).
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-2xl border border-purple-200 bg-purple-50/40">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-purple-950 text-base">취득세 & 준공 제세공과</span>
+                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-purple-200 text-purple-900">2.5%</span>
+                    </div>
+                    <div class="text-xl font-extrabold text-purple-700 mb-2">1,560만 원</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        토지 취득세(460만), 건물 신축 원시취득세 및 보존등기(1,100만). *지목변경 시 취득세 별도 발생.
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-2xl border border-rose-200 bg-rose-50/40">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-rose-950 text-base">비상 예비비 (Risk Buffer)</span>
+                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-rose-200 text-rose-900">7.1%</span>
+                    </div>
+                    <div class="text-xl font-extrabold text-rose-700 mb-2">4,500만 원</div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        암반 출토, 지하수 개발, 인입 거리 증가, 자재 및 설계 변경 등 예측 불가 항목을 대비한 필수 방어 자금.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Timeline Section -->
+        <section id="process" class="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 sm:p-8">
+            <div class="mb-8">
+                <div class="flex items-center space-x-2 text-indigo-600 font-semibold text-sm">
+                    <span>🧭</span>
+                    <span>실제 건축행정 6단계 순서</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">토지 사전검토부터 사용승인·입주까지의 타임라인</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+                    실제 실무에서 어떤 순서로 돈이 나가고 어떤 인허가를 거쳐야 하는지 단계별로 정리했습니다.
+                </p>
+            </div>
+
+            <!-- Steps Grid -->
+            <div class="space-y-6">
+                <!-- Step 1 -->
+                <div class="border border-slate-200 rounded-2xl p-5 sm:p-6 bg-slate-50/50 hover:border-indigo-400 transition">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-200 pb-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-slate-900 text-white font-black flex items-center justify-center text-sm">1</span>
+                            <h3 class="text-lg font-bold text-slate-900">토지 매입 전 · 토지 취득 단계</h3>
+                        </div>
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-200 text-slate-700 w-fit">소요비용 약 1억 460만 원 (토지비 포함)</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                        <div>
+                            <strong class="text-slate-900 block mb-1">📌 핵심 진행 절차</strong>
+                            <p class="text-slate-600">건축 가능성 법률 검토 → 현황 조사(도로/배수) → 사업예산 편성 → 토지 매매계약 → 잔금 및 소유권이전등기</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-900 block mb-1">💰 주요 발생 비용</strong>
+                            <p class="text-slate-600">토지 매매대금(1억), 토지 취득세(4.6% 약 460만), 부동산 중개보수, 법무사 등기 수수료</p>
+                        </div>
+                        <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-amber-900">
+                            <strong class="block mb-0.5">⚠️ 절대 주의 사항</strong>
+                            농지(전·답)는 <strong>농지취득자격증명</strong>이 필수이며, 도로가 없으면(맹지) 건축 자체가 불가하므로 도로 접도 여부를 반드시 확인해야 합니다.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="border border-slate-200 rounded-2xl p-5 sm:p-6 bg-slate-50/50 hover:border-indigo-400 transition">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-200 pb-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-slate-900 text-white font-black flex items-center justify-center text-sm">2</span>
+                            <h3 class="text-lg font-bold text-slate-900">설계 및 건축 인허가 단계</h3>
+                        </div>
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 w-fit">소요비용 약 3,100만 원</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                        <div>
+                            <strong class="text-slate-900 block mb-1">📌 핵심 진행 절차</strong>
+                            <p class="text-slate-600">지적경계복원·현황측량 → 지반조사 → 건축 기본·실시설계 → 개발행위/농지/산지 복합 민원 협의 → 건축허가 또는 신고</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-900 block mb-1">💰 주요 발생 비용</strong>
+                            <p class="text-slate-600">측량·지반조사(200만), 건축설계비(2,400만), 개발행위 토목설계 대행(500만), 인허가 면허세 등</p>
+                        </div>
+                        <div class="bg-indigo-50 p-3 rounded-xl border border-indigo-200 text-indigo-900">
+                            <strong class="block mb-0.5">⚠️ 법정 부담금 확인</strong>
+                            농지 전용 시 <strong>농지보전부담금</strong>, 산지 전용 시 <strong>대체산림자원조성비</strong>가 납부되어야 최종 건축허가증이 교부됩니다.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="border border-slate-200 rounded-2xl p-5 sm:p-6 bg-slate-50/50 hover:border-indigo-400 transition">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-200 pb-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-slate-900 text-white font-black flex items-center justify-center text-sm">3</span>
+                            <h3 class="text-lg font-bold text-slate-900">착공 준비 및 계약</h3>
+                        </div>
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-200 text-slate-700 w-fit">소요비용 약 500만 원 (감리비 등)</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                        <div>
+                            <strong class="text-slate-900 block mb-1">📌 핵심 진행 절차</strong>
+                            <p class="text-slate-600">시공사 비교 견적 및 도급계약 → 공사감리자 지정(허가 대상인 경우) → 가설 울타리·전기/수도 신청 → 착공신고 필증 획득</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-900 block mb-1">💰 주요 발생 비용</strong>
+                            <p class="text-slate-600">공사감리 계약금(500만), 산재·고용보험료, 계약이행 보증보험료, 착공 가설재 설치비</p>
+                        </div>
+                        <div class="bg-slate-100 p-3 rounded-xl border border-slate-300 text-slate-800">
+                            <strong class="block mb-0.5">⚠️ 법령 포인트</strong>
+                            「건축법」 제21조에 따라 <strong>착공신고 필증</strong>이 정식 교부되기 전에 먼저 공사를 시작하면 불법 착공으로 처벌받습니다.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="border border-slate-200 rounded-2xl p-5 sm:p-6 bg-slate-50/50 hover:border-indigo-400 transition">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-200 pb-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-emerald-600 text-white font-black flex items-center justify-center text-sm">4</span>
+                            <h3 class="text-lg font-bold text-slate-900">토목 및 본 건축공사</h3>
+                        </div>
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 w-fit">소요비용 약 3억 8,500만 원</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                        <div>
+                            <strong class="text-slate-900 block mb-1">📌 핵심 진행 절차</strong>
+                            <p class="text-slate-600">토목 절·성토 및 옹벽 조성 → 버림 및 매트 기초타설 → 목조 골조 빌드 → 투습방수지 및 창호 → 지붕·외벽 → 단열·석고보드·내장</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-900 block mb-1">💰 주요 발생 비용</strong>
+                            <p class="text-slate-600">대지 옹벽 토목비(2,500만) + 순수 건축도급 공사비(3억 6,000만, 기성고별 4~5회 분할 지급)</p>
+                        </div>
+                        <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200 text-emerald-900">
+                            <strong class="block mb-0.5">⚠️ 공정 관리</strong>
+                            도급 내역서에 포함된 공사 범위(단열등급, 시스템 창호 사양, 방수 공법)가 계약서와 일치하는지 단계별로 감리·확인해야 합니다.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="border border-slate-200 rounded-2xl p-5 sm:p-6 bg-slate-50/50 hover:border-indigo-400 transition">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-200 pb-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-slate-900 text-white font-black flex items-center justify-center text-sm">5</span>
+                            <h3 class="text-lg font-bold text-slate-900">기반시설 인입 · 외부공사 & 사용승인(준공)</h3>
+                        </div>
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-sky-100 text-sky-800 w-fit">소요비용 약 5,400만 원</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                        <div>
+                            <strong class="text-slate-900 block mb-1">📌 핵심 진행 절차</strong>
+                            <p class="text-slate-600">지하관로(상수도·오수관) 인입 → 한전 전기 계량기 부설 → 가구 및 시스템에어컨 시공 → 조경 식재 → 지자체 사용승인 현장 검사</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-900 block mb-1">💰 주요 발생 비용</strong>
+                            <p class="text-slate-600">상수도·전기·정화조 인입(1,200만), 주방가구/에어컨(2,500만), 조경/담장/포장(1,500만), 정화조 준공검사 수수료</p>
+                        </div>
+                        <div class="bg-sky-50 p-3 rounded-xl border border-sky-200 text-sky-900">
+                            <strong class="block mb-0.5">⚠️ 사용승인 전 입주 불가</strong>
+                            「건축법」 제22조에 따라 <strong>사용승인서(준공필증)</strong>를 교부받기 전에는 원칙적으로 사전 입주나 가구 배치가 금지됩니다.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="border border-slate-200 rounded-2xl p-5 sm:p-6 bg-slate-50/50 hover:border-indigo-400 transition">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-200 pb-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-full bg-slate-900 text-white font-black flex items-center justify-center text-sm">6</span>
+                            <h3 class="text-lg font-bold text-slate-900">준공 후 세금 납부 · 소유권등기 & 최종 입주</h3>
+                        </div>
+                        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-100 text-purple-800 w-fit">소요비용 약 1,100만 원 + 지목변경세</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                        <div>
+                            <strong class="text-slate-900 block mb-1">📌 핵심 진행 절차</strong>
+                            <p class="text-slate-600">건축물대장 생성 확인 → 신축 건물 취득세 신고·납부(60일 이내) → 소유권 보존등기 → 지목변경(대지 전환) 및 등기정리 → 전입신고</p>
+                        </div>
+                        <div>
+                            <strong class="text-slate-900 block mb-1">💰 주요 발생 비용</strong>
+                            <p class="text-slate-600">건물 신축 취득세(원시취득 약 1,100만), 보존등기 등록면허세, 지목변경 취득세(공시지가 상승분의 2%)</p>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded-xl border border-purple-200 text-purple-900">
+                            <strong class="block mb-0.5">⚠️ 가산세 방지</strong>
+                            사용승인일로부터 <strong>60일 이내에 관할 시·군·구청 세무과에 취득세를 신고</strong>하지 않으면 20%의 무신고 가산세가 부과됩니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Comparison & Statutory Charges Section -->
+        <section id="permits" class="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 sm:p-8">
+            <div class="mb-8">
+                <div class="flex items-center space-x-2 text-indigo-600 font-semibold text-sm">
+                    <span>⚖️</span>
+                    <span>2026 건축 법령 핵심 분석</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">건축허가 vs 건축신고 & 토지 지목별 법정부담금</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+                    토지의 용도지역과 지목에 따라 행정 절차와 감리비용, 그리고 수백~수천만 원에 이르는 법정부담금이 달라집니다.
+                </p>
+            </div>
+
+            <!-- Comparison 1: Permit vs Notice -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <div class="border border-slate-200 rounded-2xl p-6 bg-slate-50">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <span>📄</span> 건축신고 대상 (비도시 소규모)
+                        </h3>
+                        <span class="text-xs font-bold px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded">감리비 절감 가능</span>
+                    </div>
+                    <ul class="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
+                        <li>• <strong>적용 지역:</strong> 계획관리지역, 생산관리지역, 보전관리지역, 농림지역 등</li>
+                        <li>• <strong>규모 요건:</strong> 연면적 200㎡(약 60.5평) 미만 AND 3층 미만</li>
+                        <li>• <strong>40평 단독주택:</strong> 위 관리지역에 신축 시 원칙적으로 <strong>건축신고 대상</strong></li>
+                        <li>• <strong>공사감리 의무:</strong> 「건축법」 제25조에 따른 <strong>일반 감리 의무 제외</strong> (감리비 약 500만 원 절약)</li>
+                        <li>• <strong>주의:</strong> 지구단위계획구역, 방재지구는 신고 특례가 배제될 수 있음</li>
+                    </ul>
+                </div>
+
+                <div class="border border-slate-200 rounded-2xl p-6 bg-slate-50">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <span>🏛️</span> 건축허가 대상 (도시지역 등)
+                        </h3>
+                        <span class="text-xs font-bold px-2.5 py-1 bg-amber-100 text-amber-800 rounded">법정 공사감리 필수</span>
+                    </div>
+                    <ul class="text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed">
+                        <li>• <strong>적용 지역:</strong> 제1·2종 일반주거지역, 자연녹지지역 등 도시지역 전역</li>
+                        <li>• <strong>규모 요건:</strong> 85㎡ 초과 신축 건물은 규모와 관계없이 <strong>건축허가 필수</strong></li>
+                        <li>• <strong>40평 단독주택:</strong> 도시지역 내 신축 시 무조건 <strong>건축허가 대상</strong></li>
+                        <li>• <strong>공사감리 의무:</strong> 「건축법」 제25조에 따라 <strong>법정 공사감리 계약 필수</strong> (약 500~700만 원 소요)</li>
+                        <li>• <strong>감리자 지정:</strong> 일반 단독주택은 법령에 따라 건축주가 직접 감리자 지정 계약</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Comparison 2: Land Taxes & Conversion Surcharges -->
+            <div class="border border-slate-200 rounded-2xl p-6 bg-gradient-to-r from-slate-50 to-indigo-50/30">
+                <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                    <span>🌱</span> 토지 지목별 필수 법정 부담금 체계 (2026 기준)
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="text-emerald-700 font-bold text-sm mb-1">🌾 농지(전·답·과수원) 전용</div>
+                        <div class="text-base font-extrabold text-slate-900 mb-2">농지보전부담금</div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-2">
+                            • 농업진흥지역 <strong>안</strong>: 개별공시지가 × 30% × 전용면적<br>
+                            • 농업진흥지역 <strong>밖</strong>: 개별공시지가 × 20% × 전용면적
+                        </p>
+                        <div class="text-[11px] text-emerald-800 bg-emerald-50 p-2 rounded">
+                            * ㎡당 최대 상한선: <strong>50,000원</strong> (331㎡ 기준 최대 약 1,655만 원)
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="text-blue-700 font-bold text-sm mb-1">🌲 산지(임야) 전용</div>
+                        <div class="text-base font-extrabold text-slate-900 mb-2">대체산림자원조성비</div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-2">
+                            전용면적 × (산림청 고시 단위단가 + 공시지가의 0.1%)
+                        </p>
+                        <div class="text-[11px] text-blue-800 bg-blue-50 p-2 rounded">
+                            * 준보전산지·보전산지 구분에 따라 상이하며, 별도의 <strong>산지복구비 예치금(보증서)</strong>이 필수 수반됨.
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="text-indigo-700 font-bold text-sm mb-1">🏗️ 준공 후 지목 변경</div>
+                        <div class="text-base font-extrabold text-slate-900 mb-2">지목변경 취득세</div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-2">
+                            「지방세법」 제7조제4항: 지목변경으로 인해 <strong>증가한 토지 가액(차액) × 2%</strong> 본세 부과
+                        </p>
+                        <div class="text-[11px] text-indigo-800 bg-indigo-50 p-2 rounded">
+                            * 예: 준공 후 토지공시지가가 3,000만 원 상승했다면, 취득세 본세는 60만 원 발생.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checklist Section -->
+        <section id="checklist" class="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 sm:p-8">
+            <div class="mb-6">
+                <div class="flex items-center space-x-2 text-indigo-600 font-semibold text-sm">
+                    <span>✅</span>
+                    <span>건축주 사전 방어 체크리스트</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-1">계약서 도장 찍기 전 반드시 확인할 6가지</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+                    땅값만 보고 섣불리 샀다가 토목공사비와 인입비로 수천만 원이 날아가는 사례를 사전에 차단하세요.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-md transition">
+                    <div class="text-lg font-bold text-slate-900 flex items-center gap-2 mb-2">
+                        <span>🛣️</span> 1. 법정도로 4m 접도
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        「건축법」 제44조에 따라 대지는 폭 4m 이상 도로에 최소 2m 이상 접해야 합니다. 사도(사유지 도로)라면 사전에 '토지사용승낙서' 확보가 필수입니다.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-md transition">
+                    <div class="text-lg font-bold text-slate-900 flex items-center gap-2 mb-2">
+                        <span>🚰</span> 2. 상수도 인입 거리
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        도로 밑에 시·군 상수도 관로가 없으면 100~200m 원거리 인입 비용이 발생하거나, 수백만 원을 들여 지하수 관정(대형 관정 800만~1,200만)을 파야 합니다.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-md transition">
+                    <div class="text-lg font-bold text-slate-900 flex items-center gap-2 mb-2">
+                        <span>🚽</span> 3. 하수처리 구역 여부
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        공공하수관로 연결 가능 구역인지, 아니면 단독 정화조(개별 오수처리시설)를 설치해 하천으로 방류해야 하는 지역인지 지자체 하수도과에 사전 확인하세요.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-md transition">
+                    <div class="text-lg font-bold text-slate-900 flex items-center gap-2 mb-2">
+                        <span>⚡</span> 4. 전신주와의 거리
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        한전 기본 공급 규정상 200m 이내는 기본 시설부담금만 발생하지만, 200m 초과 시 1m당 수만 원씩 거리 할증 비용이 기하급수적으로 늘어납니다.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-md transition">
+                    <div class="text-lg font-bold text-slate-900 flex items-center gap-2 mb-2">
+                        <span>⛰️</span> 5. 토지 경사도와 옹벽
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        자연경사도가 심한 땅은 절토·성토 토공사와 함께 식생 블록이나 콘크리트 보강토 옹벽 공사비로 2,000만~4,000만 원이 추가로 지출됩니다.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-md transition">
+                    <div class="text-lg font-bold text-slate-900 flex items-center gap-2 mb-2">
+                        <span>📝</span> 6. 도급계약서 견적 범위
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        시공사 견적에 싱크대, 붙박이장, 에어컨, 조경, 인입 분담금이 '포함'인지 '별도 견적'인지 명확히 분리하여 이중 계산을 방지하세요.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Calculator Section -->
+        <section id="calculator" class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <span class="text-xs font-bold tracking-widest text-amber-400 uppercase">Interactive Budget Simulator</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold mt-2">2026 나의 집짓기 총예산 계산기</h2>
+                <p class="text-slate-400 text-xs sm:text-sm mt-2">
+                    원하시는 건축 면적과 토지 조건을 입력하시면 2026년 기준 현실적인 총사업비 견적이 실시간으로 계산됩니다.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto">
+                <!-- Controls Column -->
+                <div class="lg:col-span-6 space-y-5 bg-slate-800/90 p-6 rounded-2xl border border-slate-700">
+                    <h3 class="text-base font-bold text-amber-300 flex items-center gap-2 border-b border-slate-700 pb-3">
+                        <span>🎛️</span> 건축 조건 설정
+                    </h3>
+
+                    <!-- Building Area (Pyeong) -->
+                    <div>
+                        <div class="flex justify-between items-center text-xs font-semibold mb-1">
+                            <span class="text-slate-300">건축 연면적</span>
+                            <span class="text-amber-400 font-bold text-sm"><span id="valArea">40</span>평 (<span id="valAreaM2">132</span>㎡)</span>
+                        </div>
+                        <input id="sliderArea" type="range" min="20" max="80" step="1" value="40" 
+                               class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-400">
+                        <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                            <span>20평 (소형)</span>
+                            <span>40평 (국민 단독)</span>
+                            <span>80평 (대형)</span>
+                        </div>
+                    </div>
+
+                    <!-- Cost per Pyeong -->
+                    <div>
+                        <div class="flex justify-between items-center text-xs font-semibold mb-1">
+                            <span class="text-slate-300">평당 순수 건축비</span>
+                            <span class="text-emerald-400 font-bold text-sm"><span id="valCostPerPyeong">900</span>만 원</span>
+                        </div>
+                        <input id="sliderCostPerPyeong" type="range" min="700" max="1400" step="50" value="900" 
+                               class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-400">
+                        <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                            <span>700만 (실속형)</span>
+                            <span>900만 (표준 목조)</span>
+                            <span>1,400만 (고급 사양)</span>
+                        </div>
+                    </div>
+
+                    <!-- Land Cost -->
+                    <div>
+                        <div class="flex justify-between items-center text-xs font-semibold mb-1">
+                            <span class="text-slate-300">토지 매입비</span>
+                            <span class="text-sky-400 font-bold text-sm"><span id="valLandCost">10,000</span>만 원 (1억)</span>
+                        </div>
+                        <input id="sliderLandCost" type="range" min="0" max="50000" step="1000" value="10000" 
+                               class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-sky-400">
+                        <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                            <span>0원 (기존 보유)</span>
+                            <span>1억 원</span>
+                            <span>5억 원</span>
+                        </div>
+                    </div>
+
+                    <!-- Land Type Selector -->
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">토지 지목 유형</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <label class="cursor-pointer border border-slate-600 rounded-xl p-2.5 text-center text-xs bg-slate-700/50 hover:bg-slate-700 transition has-[:checked]:border-amber-400 has-[:checked]:bg-amber-400/10 has-[:checked]:text-amber-300">
+                                <input type="radio" name="landType" value="dae" checked class="hidden">
+                                <span class="font-bold block">일반 대지</span>
+                                <span class="text-[10px] text-slate-400">부담금 없음</span>
+                            </label>
+                            <label class="cursor-pointer border border-slate-600 rounded-xl p-2.5 text-center text-xs bg-slate-700/50 hover:bg-slate-700 transition has-[:checked]:border-amber-400 has-[:checked]:bg-amber-400/10 has-[:checked]:text-amber-300">
+                                <input type="radio" name="landType" value="nong" class="hidden">
+                                <span class="font-bold block">농지(전·답)</span>
+                                <span class="text-[10px] text-slate-400">농지보전부담금</span>
+                            </label>
+                            <label class="cursor-pointer border border-slate-600 rounded-xl p-2.5 text-center text-xs bg-slate-700/50 hover:bg-slate-700 transition has-[:checked]:border-amber-400 has-[:checked]:bg-amber-400/10 has-[:checked]:text-amber-300">
+                                <input type="radio" name="landType" value="san" class="hidden">
+                                <span class="font-bold block">산지(임야)</span>
+                                <span class="text-[10px] text-slate-400">대체산림부담금</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Permit / Supervision Type Selector -->
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-2">인허가 및 공사감리 구분</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <label class="cursor-pointer border border-slate-600 rounded-xl p-2.5 text-xs bg-slate-700/50 hover:bg-slate-700 transition has-[:checked]:border-indigo-400 has-[:checked]:bg-indigo-400/10 has-[:checked]:text-indigo-300">
+                                <input type="radio" name="permitType" value="report" checked class="hidden">
+                                <span class="font-bold block">비도시 관리지역 (신고)</span>
+                                <span class="text-[10px] text-slate-400">건축신고 특례 (감리비 절감)</span>
+                            </label>
+                            <label class="cursor-pointer border border-slate-600 rounded-xl p-2.5 text-xs bg-slate-700/50 hover:bg-slate-700 transition has-[:checked]:border-indigo-400 has-[:checked]:bg-indigo-400/10 has-[:checked]:text-indigo-300">
+                                <input type="radio" name="permitType" value="permit" class="hidden">
+                                <span class="font-bold block">도시 주거·녹지 (허가)</span>
+                                <span class="text-[10px] text-slate-400">건축허가 (법정 감리 필수)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Results Column -->
+                <div class="lg:col-span-6 bg-slate-800/95 p-6 rounded-2xl border border-slate-700 flex flex-col justify-between space-y-6">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-slate-700 pb-3 mb-4">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">시뮬레이션 산출 결과</span>
+                            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30">실시간 반영 중</span>
+                        </div>
+
+                        <!-- Grand Total Display -->
+                        <div class="bg-gradient-to-br from-slate-900 to-indigo-950 p-5 rounded-2xl border border-slate-700 text-center mb-6">
+                            <div class="text-xs text-slate-400 font-medium">예상 총사업비 (토지비 포함)</div>
+                            <div class="text-3xl sm:text-4xl font-black text-amber-400 mt-1">
+                                <span id="outTotalAll">6억 3,560만</span> 원
+                            </div>
+                            <div class="text-xs text-slate-300 mt-2">
+                                순수 건축공사비 비중: <strong id="outPureShare" class="text-emerald-400">56.6%</strong>
+                                (토지비 제외 시 <span id="outTotalNoLand" class="text-white font-semibold">5억 3,560만 원</span>)
+                            </div>
+                        </div>
+
+                        <!-- Detailed Sub-totals -->
+                        <div class="space-y-2.5 text-xs sm:text-sm">
+                            <div class="flex justify-between items-center text-slate-300 py-1 border-b border-slate-700/60">
+                                <span class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                    <span>순수 건축공사비</span>
+                                </span>
+                                <span class="font-bold text-white"><span id="outPureCost">36,000</span>만 원</span>
+                            </div>
+
+                            <div class="flex justify-between items-center text-slate-300 py-1 border-b border-slate-700/60">
+                                <span class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+                                    <span>토지 매입 & 취득세(4.6%)</span>
+                                </span>
+                                <span class="font-bold text-white"><span id="outLandSum">10,460</span>만 원</span>
+                            </div>
+
+                            <div class="flex justify-between items-center text-slate-300 py-1 border-b border-slate-700/60">
+                                <span class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                                    <span>설계·인허가 및 공사감리비</span>
+                                </span>
+                                <span class="font-bold text-white"><span id="outDesignSupervision">3,600</span>만 원</span>
+                            </div>
+
+                            <div class="flex justify-between items-center text-slate-300 py-1 border-b border-slate-700/60">
+                                <span class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                                    <span>토목 옹벽 & 기반시설 인입·조경</span>
+                                </span>
+                                <span class="font-bold text-white"><span id="outCivilInfra">5,200</span>만 원</span>
+                            </div>
+
+                            <div class="flex justify-between items-center text-slate-300 py-1 border-b border-slate-700/60">
+                                <span class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                                    <span>가구·시스템에어컨·보안</span>
+                                </span>
+                                <span class="font-bold text-white"><span id="outAppliances">2,700</span>만 원</span>
+                            </div>
+
+                            <div class="flex justify-between items-center text-slate-300 py-1 border-b border-slate-700/60">
+                                <span class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                                    <span>신축 취득세 & 전용부담금</span>
+                                </span>
+                                <span class="font-bold text-white"><span id="outTaxes">1,100</span>만 원</span>
+                            </div>
+
+                            <div class="flex justify-between items-center text-slate-300 py-1">
+                                <span class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                                    <span>권장 비상 예비비 (안전 마진)</span>
+                                </span>
+                                <span class="font-bold text-rose-300"><span id="outBuffer">4,500</span>만 원</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-700 text-[11px] text-slate-400 leading-relaxed">
+                        💡 <strong>예산 편성 조언:</strong> 본 시뮬레이터는 초기 자금 계획 수립용입니다. 토지의 현장 조건(경사도, 배수 거리, 도로 지분)에 따라 실제 시공사 견적 및 인허가 비용에 차이가 있을 수 있으므로 토지 매매계약 전 건축사 상담을 권장합니다.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 py-10 mt-16 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <div class="flex flex-wrap gap-4 text-slate-300">
+                <span class="font-bold text-white">관련 법령 및 공식 근거:</span>
+                <span>• 건축법 제11조(허가)·제14조(신고)·제25조(감리)</span>
+                <span>• 농지법 제8조(자격증명)·시행령 제53조(농지보전부담금)</span>
+                <span>• 산지관리법 및 산림청 고시(대체산림자원조성비)</span>
+                <span>• 지방세법 제7조·제15조(취득세 및 지목변경)</span>
+            </div>
+            <p class="leading-relaxed">
+                본 웹페이지의 계산 및 분석 데이터는 2026년 10월 26일 현재 시행 중인 대한민국 건축관계법령 및 일반 주택 시공 가이드를 기반으로 작성되었습니다.
+                지자체별 건축 조례, 개발행위허가 기준 및 인입 현장 여건에 따라 실무 비용은 변동될 수 있습니다.
+            </p>
+            <p class="text-slate-500">
+                © 2026 Single-Family House Construction Budget Planner. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        // Chart.js Label Wrapper
+        function wrapLabel(str, maxChars = 14) {
+            if (typeof str !== 'string') return str;
+            if (str.length <= maxChars) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxChars) {
+                    if (currentLine.trim()) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine.trim()) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        // Initialize Charts
+        let doughnutChart, barChart;
+
+        window.onload = function() {
+            initCharts();
+            setupEventListeners();
+            calculateBudget();
+        };
+
+        function initCharts() {
+            // 1. Doughnut Chart
+            const ctxDoughnut = document.getElementById('budgetDoughnutChart').getContext('2d');
+            doughnutChart = new Chart(ctxDoughnut, {
+                type: 'doughnut',
+                data: {
+                    labels: ['순수 건축비', '토지 취득', '토목/외부공사', '설계/감리', '가구/설비', '세금/등기', '예비비'],
+                    datasets: [{
+                        data: [36000, 10460, 5200, 3600, 2700, 1100, 4500],
+                        backgroundColor: [
+                            '#10B981', // Emerald (Architecture)
+                            '#0EA5E9', // Sky (Land)
+                            '#3B82F6', // Blue (Civil)
+                            '#6366F1', // Indigo (Design)
+                            '#F59E0B', // Amber (Appliances)
+                            '#A855F7', // Purple (Tax)
+                            '#F43F5E'  // Rose (Buffer)
+                        ],
+                        borderWidth: 2,
+                        borderColor: '#FFFFFF'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 12,
+                                font: { size: 11, family: 'Pretendard' },
+                                padding: 12
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const pct = ((value / total) * 100).toFixed(1);
+                                    return ` ${context.label}: ${value.toLocaleString()}만 원 (${pct}%)`;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '62%'
+                }
+            });
+
+            // 2. Bar Chart
+            const ctxBar = document.getElementById('costBarChart').getContext('2d');
+            const barLabels = ['순수 건축비', '토지(세금포함)', '토목·인입', '예비비', '설계·감리', '옵션 가구', '준공 세금'].map(l => wrapLabel(l, 10));
+
+            barChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: barLabels,
+                    datasets: [{
+                        label: '지출 금액 (만 원)',
+                        data: [36000, 10460, 5200, 4500, 3600, 2700, 1100],
+                        backgroundColor: [
+                            '#10B981',
+                            '#0EA5E9',
+                            '#3B82F6',
+                            '#F43F5E',
+                            '#6366F1',
+                            '#F59E0B',
+                            '#A855F7'
+                        ],
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` 금액: ${context.raw.toLocaleString()}만 원`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(val) {
+                                    return val.toLocaleString() + '만';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function setupEventListeners() {
+            const inputs = [
+                'sliderArea',
+                'sliderCostPerPyeong',
+                'sliderLandCost'
+            ];
+            inputs.forEach(id => {
+                document.getElementById(id).addEventListener('input', calculateBudget);
+            });
+
+            document.querySelectorAll('input[name="landType"]').forEach(r => {
+                r.addEventListener('change', calculateBudget);
+            });
+
+            document.querySelectorAll('input[name="permitType"]').forEach(r => {
+                r.addEventListener('change', calculateBudget);
+            });
+        }
+
+        function formatEokMan(manWon) {
+            if (manWon >= 10000) {
+                const eok = Math.floor(manWon / 10000);
+                const remainder = Math.round(manWon % 10000);
+                if (remainder === 0) {
+                    return `${eok}억`;
+                }
+                return `${eok}억 ${remainder.toLocaleString()}만`;
+            }
+            return `${Math.round(manWon).toLocaleString()}만`;
+        }
+
+        function calculateBudget() {
+            const area = parseInt(document.getElementById('sliderArea').value);
+            const costPerPyeong = parseInt(document.getElementById('sliderCostPerPyeong').value);
+            const landCost = parseInt(document.getElementById('sliderLandCost').value);
+            const landType = document.querySelector('input[name="landType"]:checked').value;
+            const permitType = document.querySelector('input[name="permitType"]:checked').value;
+
+            // Update UI Labels
+            document.getElementById('valArea').innerText = area;
+            document.getElementById('valAreaM2').innerText = Math.round(area * 3.30578);
+            document.getElementById('valCostPerPyeong').innerText = costPerPyeong.toLocaleString();
+            document.getElementById('valLandCost').innerText = landCost.toLocaleString();
+
+            // 1. Pure Construction Cost
+            const pureCost = area * costPerPyeong;
+
+            // 2. Land Acquisition + Tax
+            const landTax = Math.round(landCost * 0.046); // 4.6% acquisition tax
+            const landSum = landCost + landTax;
+
+            // 3. Design, Permits & Supervision
+            let designCost = Math.round(2400 * (area / 40));
+            if (designCost < 1500) designCost = 1500;
+            const surveyFee = 200;
+            const permitAdminFee = 500;
+            let supervisionFee = 0;
+            if (permitType === 'permit') {
+                supervisionFee = 500; // Mandatory supervision for permit
+            }
+            const designSupervision = designCost + surveyFee + permitAdminFee + supervisionFee;
+
+            // 4. Civil Work & Infrastructure
+            const civilWork = Math.round(2500 * (area / 40));
+            const infraIn = 1200;
+            const landscape = Math.round(1500 * (area / 40));
+            const civilInfra = civilWork + infraIn + landscape;
+
+            // 5. Built-in Furniture & Systems
+            const appliances = Math.round(2700 * (area / 40));
+
+            // 6. Surcharges & Building Tax
+            const buildingAcquisitionTax = Math.round(pureCost * 0.0316); // Approx 3.16%
+            let surcharge = 0;
+            if (landType === 'nong') {
+                surcharge = 1650; // Agriculture Preservation Charge
+            } else if (landType === 'san') {
+                surcharge = 1200; // Forest Alternative Resource Charge
+            }
+            const taxes = buildingAcquisitionTax + surcharge;
+
+            // 7. Contingency Reserve Buffer (Approx 7~8% of subtotal)
+            const subTotalWithoutBuffer = pureCost + landSum + designSupervision + civilInfra + appliances + taxes;
+            const buffer = Math.round(pureCost * 0.125); // ~4,500 for 36,000
+
+            // Grand Total
+            const totalAll = subTotalWithoutBuffer + buffer;
+            const totalNoLand = totalAll - landSum;
+            const pureShare = ((pureCost / totalAll) * 100).toFixed(1);
+
+            // Update DOM Results
+            document.getElementById('outTotalAll').innerText = formatEokMan(totalAll);
+            document.getElementById('outTotalNoLand').innerText = formatEokMan(totalNoLand) + ' 원';
+            document.getElementById('outPureShare').innerText = pureShare + '%';
+            document.getElementById('outPureCost').innerText = pureCost.toLocaleString();
+            document.getElementById('outLandSum').innerText = landSum.toLocaleString();
+            document.getElementById('outDesignSupervision').innerText = designSupervision.toLocaleString();
+            document.getElementById('outCivilInfra').innerText = civilInfra.toLocaleString();
+            document.getElementById('outAppliances').innerText = appliances.toLocaleString();
+            document.getElementById('outTaxes').innerText = taxes.toLocaleString();
+            document.getElementById('outBuffer').innerText = buffer.toLocaleString();
+
+            // Update Doughnut & Bar Charts dynamically
+            if (doughnutChart && barChart) {
+                const newData = [
+                    pureCost,
+                    landSum,
+                    civilInfra,
+                    designSupervision,
+                    appliances,
+                    taxes,
+                    buffer
+                ];
+                doughnutChart.data.datasets[0].data = newData;
+                doughnutChart.update();
+
+                barChart.data.datasets[0].data = [
+                    pureCost,
+                    landSum,
+                    civilInfra,
+                    buffer,
+                    designSupervision,
+                    appliances,
+                    taxes
+                ];
+                barChart.update();
+            }
+        }
+    </script>
+</body>
+</html>
